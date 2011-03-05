@@ -5,7 +5,8 @@
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	Module
 %define	pnam	Refresh
-Summary:	Module::Refresh - Refresh %INC files when updated on disk
+Summary:	Module::Refresh - refresh %%INC files when updated on disk
+Summary(pl.UTF-8):	Module::Refresh - odświeżanie plików %%INC po uaktualnieniu na dysku
 Name:		perl-Module-Refresh
 Version:	0.13
 Release:	2
@@ -15,22 +16,24 @@ Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Module/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	d968e32fc272b5a258f527504c99dc7d
 URL:		http://search.cpan.org/dist/Module-Refresh/
-BuildRequires:	perl-devel >= 1:5.8.0
+BuildRequires:	perl-devel >= 1:5.8.1
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
+BuildRequires:	perl-Test-Simple
 %endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This module is a generalization of the functionality provided by
-Apache::StatINC and Apache::Reload.  It's designed to make it
-easy to do simple iterative development when working in a persistent
+Apache::StatINC and Apache::Reload. It's designed to make it easy to
+do simple iterative development when working in a persistent
 environment.
 
-It does not require mod_perl.
-
-Initialize the module refresher.
+%description -l pl.UTF-8
+Ten moduł jest uogólnieniem funkcji udostępnianych przez moduły
+Apache::StatINC i Apache::Reload. Ma ułatwić proste programowanie
+iteracyjne przy pracy w trwałym środowisku.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -54,5 +57,5 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Changes
-%{perl_vendorlib}/Module/*.pm
-%{_mandir}/man3/*
+%{perl_vendorlib}/Module/Refresh.pm
+%{_mandir}/man3/Module::Refresh.3pm*
