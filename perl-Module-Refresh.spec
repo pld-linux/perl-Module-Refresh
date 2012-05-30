@@ -19,6 +19,8 @@ URL:		http://search.cpan.org/dist/Module-Refresh/
 BuildRequires:	perl-devel >= 1:5.8.1
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
+BuildRequires:	perl-File-Temp >= 0.19
+BuildRequires:	perl-Path-Class
 BuildRequires:	perl-Test-Simple
 %endif
 BuildArch:	noarch
