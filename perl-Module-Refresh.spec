@@ -2,7 +2,6 @@
 # Conditional build:
 %bcond_without	tests		# do not perform "make test"
 #
-%include	/usr/lib/rpm/macros.perl
 %define	pdir	Module
 %define	pnam	Refresh
 Summary:	Module::Refresh - refresh %%INC files when updated on disk
